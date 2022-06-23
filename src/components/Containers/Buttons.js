@@ -1,6 +1,9 @@
-import Button from "../UI/Button/Button"
 import { useDispatch } from "react-redux"
+import { counterActions } from "../../store/CounterStore"
+
+import Button from "../UI/Button/Button"
 import FlexWrapper from "../UI/FlexWrapper/FlexWrapper"
+
 
 
 const Buttons = () => {
@@ -8,19 +11,19 @@ const Buttons = () => {
   const counterDispatch = useDispatch()
 
   const onIncrement = () => {
-    counterDispatch({ type: "INCREMENT" })
+    counterDispatch(counterActions.increment())
   }
 
   const onDecrement = () => {
-    counterDispatch({ type: "DECREMENT" })
+    counterDispatch(counterActions.decrement())
   }
 
   const onRaiseToPower = () => {
-    counterDispatch({ type: "RAISE_TO_POWER", payload: 10 })
+    counterDispatch(counterActions.raiseToPower(10))
   }
 
   const onReset = () => {
-    counterDispatch({ type: "RESET" })
+    counterDispatch(counterActions.reset())
   }
 
   return (
